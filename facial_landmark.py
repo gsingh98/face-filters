@@ -4,12 +4,11 @@ import numpy as np
 import math
 from numba import njit
 import itertools
-from uwimg import *
 from numpy.linalg import inv
 
 # TRIGGERS TO SHOW OLDER IMPELEMENTATIONS
-TPS_CUSTOM = True
-COMPUTE_HOMOGRAPHY = False  # Uses techniques shown in class to compute the homography and place the filter on the face
+TPS_CUSTOM = False
+COMPUTE_HOMOGRAPHY = True  # Uses techniques shown in class to compute the homography and place the filter on the face
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('./final_project/trained_models/shape_predictor_68_face_landmarks.dat')
