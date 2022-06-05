@@ -1,5 +1,8 @@
 # Creating an extensible framework to apply facial filters in real time (CSE455 Final Project - Guramrit Singh)
 
+## Video Summary
+<p align='center'><iframe width="560" height="315" src="https://www.youtube.com/embed/zRCWsuLZrss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+
 ## 1. Introduction
 
 As social media platforms have grown, we have been seeing a larger amount of content being created directly from the in-app camera features of the respective apps. More often than not these in-built camera interfaces have proprietary features like facial filters. These processes are heavily guared including the algorithms and the filters themselves. (Recall, the infamous of the Snapchat "Dog" filter from about three years ago). There is however, not a good utility that exists the users can use to create and perfect their own filters.
