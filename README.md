@@ -16,7 +16,7 @@ The overall process for the application of filters comprises of 3 distinct steps
 
 For the facial detection phase what we want out output is the bounding boxes around each individual face in the frame. This is the region of interest and each filter is applied individually to the given region of interest.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604002148565.png" alt="image-20220604002148565" style="zoom:50%;" />
+<img src="./image-20220604002148565.png" alt="image-20220604002148565" style="zoom:50%;" />
 
 *Fig 1: Face Detection, program creates a bounding box around all the faces in the frame*
 
