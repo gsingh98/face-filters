@@ -132,9 +132,9 @@ Unfortunately it is hard to evaluate facial filters by any sort of metric direct
 
 For the overall quality of the filter being outputted by my custom implementation, I found the output to be much better in quality as compared to the output using the homography but where it fell short was the non-affine transformation. The points seemed to not have enough bending energy so the output followed the face much less closely. There were also times during rotation of the face which would cause the filter to no longer be aligned with the face.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220605000437413.png" alt="image-20220605000437413" style="zoom:80%;" />
+<img src="image-20220605000437413.png" alt="image-20220605000437413" style="zoom:80%;" />
 
-*Fig 11. Misalignment caused due to the points being off axis*
+*Fig 11. Misalignment caused due to face rotation*
 
 I speculate this is because I have not yet implemented a 'lambda' for each point which can specify the maximum deviation that the output can have from the clamped points. This would also fall under the future work section. However, at the end of the day, I found this custom implementation to still behave much better than the compute homography as it was much less jittery and did not cause the 'streaking' effect as seen in the compute homography function.
 
