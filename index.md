@@ -38,7 +38,7 @@ Next, for each face that is found in the frame, we run a pre-trained predictor t
 
 The user can easlily create a custom filter in just a few simple steps. Firstly an image is needed that will serve as the filter. This can be something as simple as a crop from another image or something more intricate than that (Complexity is up to the user). For the filter image, a png file is required since this also includes transparency information. An example filter will look as follows:
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/beard1.png" style="zoom:100%;" />
+<img src="beard1.png" style="zoom:100%;" />
 
 *Fig 4. Png file from the internet that will serve as the end filter to be applied to the face*
 
