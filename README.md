@@ -16,7 +16,7 @@ The overall process for the application of filters comprises of 3 distinct steps
 
 For the facial detection phase what we want out output is the bounding boxes around each individual face in the frame. This is the region of interest and each filter is applied individually to the given region of interest.
 
-<img src="/Users/guramritsingh/Library/Application Support/typora-user-images/image-20220604002148565.png" alt="image-20220604002148565" style="zoom:50%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604002148565.png" alt="image-20220604002148565" style="zoom:50%;" />
 
 *Fig 1: Face Detection, program creates a bounding box around all the faces in the frame*
 
@@ -24,11 +24,11 @@ For the facial detection phase what we want out output is the bounding boxes aro
 
 Next, for each face that is found in the frame, we run a pre-trained predictor that outputs the points of interest for the face. These are points along surfaces such as along the chin, around the lips as well as around the eyes. The facial data points are based on the key point detection as described by the IBug dataset. The predictor outputs the 68 described points of interest for the given image. What is to be noted here is that this is an all-or-nothing prediction where the predictor will return nothing if it was not able to detect a single point.
 
-![0d6c2ab69897ff152cb3ebe1726dca3c.jpg](/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/0d6c2ab69897ff152cb3ebe1726dca3c.png)
+![0d6c2ab69897ff152cb3ebe1726dca3c.jpg](/Users/guramritsingh/Documents/Classes/CSE455/face-filters/0d6c2ab69897ff152cb3ebe1726dca3c.png)
 
 *Fig 2. The 68 points of interest that are defined by the iBug dataset*
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604150050367.png" alt="image-20220604150050367" style="zoom:50%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604150050367.png" alt="image-20220604150050367" style="zoom:50%;" />
 
 *Fig 3. Predicted points of interest on the predicted face*
 
@@ -38,17 +38,17 @@ Next, for each face that is found in the frame, we run a pre-trained predictor t
 
 The user can easlily create a custom filter in just a few simple steps. Firstly an image is needed that will serve as the filter. This can be something as simple as a crop from another image or something more intricate than that (Complexity is up to the user). For the filter image, a png file is required since this also includes transparency information. An example filter will look as follows:
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/final_project/filters/beard1.png" style="zoom:100%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/beard1.png" style="zoom:100%;" />
 
 *Fig 4. Png file from the internet that will serve as the end filter to be applied to the face*
 
 Next, the user needs to define another file which will be a '.txt' file having the same name as the filter image file. This txt file contains exactly 69 lines. The first line contains a comma separated list containing all the points that need to matched on to the face of the subject. That can be as few as 4 points but can theoretically also be all the 68 points-of-interest. The next 68 lines are the location of each of the 68 points corresponding to the 68 facial landmarks as defined by iBug and displayed in fig 2. Since we will only be using the points of interest that are provided in the first line, these 68 points apart from the the ones defined in the first line can just be (0,0). 
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604170354228.png" alt="image-20220604170354228" style="zoom:50%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604170354228.png" alt="image-20220604170354228" style="zoom:50%;" />
 
 *Fig 5. Filter description in the txt file*
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604153907024.png" alt="image-20220604153907024" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604153907024.png" alt="image-20220604153907024" style="zoom:30%;" />
 
 *Fig 6. Given filter with the points being used to match to the face. As shown, this is not using all the 68 points but only the defined ones*
 
@@ -56,11 +56,11 @@ While it would be nice to have a utility to help users guess the given points, t
 
 Lastly once we have all of the above information, we can go ahead an put it all together by mapping the points and overlaying the filter on top of the base image to get a filter look.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604154312357.png" alt="image-20220604154312357" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604154312357.png" alt="image-20220604154312357" style="zoom:30%;" />
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604154407695.png" alt="image-20220604154407695" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604154407695.png" alt="image-20220604154407695" style="zoom:30%;" />
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604154557421.png" alt="image-20220604154557421" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604154557421.png" alt="image-20220604154557421" style="zoom:30%;" />
 
 *Fig 6. The final filters being applied to the base image*
 
@@ -82,9 +82,9 @@ While a significant amount of work went in to establishing an extensible framewo
 
 My first approach was to compute the homography to match points together. While this was the fastest of all the approaches, it was not perfect. There appeared to be a lot of streaking going on towards the edge of the image. this was very apparent when I would rotate my head which would squeeze the image inwards. So I decided to ditch this approach.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604173922423.png" alt="image-20220604173922423" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604173922423.png" alt="image-20220604173922423" style="zoom:30%;" />
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604174015677.png" alt="image-20220604174015677" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604174015677.png" alt="image-20220604174015677" style="zoom:30%;" />
 
 *Fig 7. Best and worst case scenarios for the compute homography approach*
 
@@ -96,9 +96,9 @@ In order to combat the issues I faced with the homogrpahy implementation of appl
 
 This approach showed much promise so I decided to try it out using the in built in OpenCV implementatioin to begin with. Applying TPS to the filter image worked out wonderfully. This was fast enough that I was able to run in real time at about 40% scale of my webcam output which is 1080p. The image was much less jittery than the Homography implementation and the more points I fixed, the better the output got.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604175213411.png" alt="image-20220604175213411" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604175213411.png" alt="image-20220604175213411" style="zoom:30%;" />
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604175305309.png" alt="image-20220604175305309" style="zoom:30%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604175305309.png" alt="image-20220604175305309" style="zoom:30%;" />
 
 *Fig 8. Output using OpenCV's TPS. Notice how the filter now conforms much nicer around the face and especially around the lips*
 
@@ -114,13 +114,13 @@ Lastly, since TPS worked great for my use case, I decided to implement TPS from 
 
 At the end of the day, all thin plate splines is doing is solving the bending energy equation.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604175753987.png" alt="image-20220604175753987" style="zoom:70%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604175753987.png" alt="image-20220604175753987" style="zoom:70%;" />
 
 *Fig 9. Bending energy equation*
 
 We can do so by using a complex set of mathematrical transformations which can be referenced in any one of the articles above. I would able to get good output from my custom TPS implementation wherein the mask was closely applied to the face. The affine transformation part of solving the equation seemed good but I did have some trouble with my code not outputting the bending of the images quite as I had expected it to.
 
-<img src="/Users/guramritsingh/Documents/Classes/CSE455/cse455-22sp-gsingh98/image-20220604181017887.png" alt="image-20220604181017887" style="zoom:67%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220604181017887.png" alt="image-20220604181017887" style="zoom:67%;" />
 
 *Fig 10. Output from my custom implementation of TPS*
 
@@ -132,7 +132,7 @@ Unfortunately it is hard to evaluate facial filters by any sort of metric direct
 
 For the overall quality of the filter being outputted by my custom implementation, I found the output to be much better in quality as compared to the output using the homography but where it fell short was the non-affine transformation. The points seemed to not have enough bending energy so the output followed the face much less closely. There were also times during rotation of the face which would cause the filter to no longer be aligned with the face.
 
-<img src="/Users/guramritsingh/Library/Application Support/typora-user-images/image-20220605000437413.png" alt="image-20220605000437413" style="zoom:80%;" />
+<img src="/Users/guramritsingh/Documents/Classes/CSE455/face-filters/image-20220605000437413.png" alt="image-20220605000437413" style="zoom:80%;" />
 
 *Fig 11. Misalignment caused due to the points being off axis*
 
