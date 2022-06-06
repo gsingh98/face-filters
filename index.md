@@ -1,7 +1,7 @@
 # Creating an extensible framework to apply facial filters in real time (CSE455 Final Project - Guramrit Singh)
 
 ## Video Summary
-<p align='center'><iframe width="560" height="315" src="https://www.youtube.com/embed/OjgqeOV3e28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></p>
+<p align='center'><iframe width="560" height="315" src="https://www.youtube.com/embed/OjgqeOV3e28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 ## 1. Introduction
 
