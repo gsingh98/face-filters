@@ -25,7 +25,7 @@ For the facial detection phase what we want out output is the bounding boxes aro
 
 ### 2.2 Facial Data Points
 
-Next, for each face that is found in the frame, we run a pre-trained predictor that outputs the points of interest for the face. These are points along surfaces such as along the chin, around the lips as well as around the eyes. The facial data points are based on the key point detection as described by the IBug dataset. The predictor outputs the 68 described points of interest for the given image. What is to be noted here is that this is an all-or-nothing prediction where the predictor will return nothing if it was not able to detect a single point.
+Next, for each face that is found in the frame, we run a pre-trained predictor that outputs the points of interest for the face. These are points along surfaces such as along the chin, around the lips as well as around the eyes. The facial data points are based on the key point detection as described by the <a href="https://ibug.doc.ic.ac.uk/resources/300-W/">IBug dataset</a>. The predictor outputs the 68 described points of interest for the given image. What is to be noted here is that this is an all-or-nothing prediction where the predictor will return nothing if it was not able to detect a single point.
 
 ![0d6c2ab69897ff152cb3ebe1726dca3c.jpg](0d6c2ab69897ff152cb3ebe1726dca3c.png)
 
